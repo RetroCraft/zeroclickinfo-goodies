@@ -18,17 +18,17 @@ sub build_structured_answer {
     
     my $point_plural = ($score == 1 ? "point" : "points");
 
-    return qq($word is worth $score Scrabble $point_plural.),
+    return "$word is worth $score Scrabble $point_plural.",
         structured_answer => {
             data => {
-                title    => $score,
-                subtitle => "Scrabble score: $score"
+                title => "$score $point_plural",
+                subtitle => "Scrabble score of $word"
             },
-
             templates => {
-                group => 'text'
+                group => 'text',
+                moreAt => 0
             }
-        };
+      };
 }
 
 # Use this to build expected results for your tests.
